@@ -34,7 +34,6 @@ app.get("/", async (req, res, next) => {
 const PORT = process.env.PORT || 3000;
 const startServer = async () => {
   try {
-    // Test database connection
     await testConnection();
     console.log('Database connected successfully');
     app.listen(PORT, () => {

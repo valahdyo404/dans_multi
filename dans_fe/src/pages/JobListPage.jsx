@@ -36,7 +36,6 @@ const GitHubJobs = () => {
 
   const handleLoadMore = async () => {
     setIsLoading(true);
-    // Simulate API call delay
     await handlePagination(currentPage + 1);
     setCurrentPage(prev => prev + 1);
     setIsLoading(false);

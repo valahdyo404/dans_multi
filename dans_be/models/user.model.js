@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 module.exports = (sequelize) => {
   class User extends Model {
     static associate(models) {
-      // define associations here
     }
 
     async validatePassword(password) {

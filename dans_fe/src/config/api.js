@@ -6,16 +6,13 @@ const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL || 'http://localhost:3001/api',
 });
 const getToken = () => {
-  // First try to get token from localStorage
   const localToken = localStorage.getItem('token');
   if (localToken) {
     return localToken;
   }
   
-  // Fallback to Redux store if no token in localStorage
   return selectAuthToken(store.getState());
 };
-// Set Authorization header if token exists in Redux store
 api.interceptors.request.use((config) => {
   const token = getToken();
   if (token) {

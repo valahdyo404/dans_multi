@@ -7,9 +7,7 @@ import JobListPage from './pages/JobListPage';
 import JobDetailPage from './pages/JobDetailPage';
 import { selectAuthToken, setToken } from './config/slices/authSlice';
 
-// Protected Route Component
 const ProtectedRoute = ({ children }) => {
-  // Check both localStorage and Redux
   const authToken = useSelector(selectAuthToken);
   const localToken = localStorage.getItem('token');
   
@@ -20,7 +18,6 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
-// Public Route Component (accessible only when not authenticated)
 const PublicRoute = ({ children }) => {
   const authToken = useSelector(selectAuthToken);
   const localToken = localStorage.getItem('token');
@@ -36,7 +33,6 @@ const App = () => {
   const dispatch = useDispatch();
   const authToken = useSelector(selectAuthToken);
 
-  // Check localStorage on app load and sync with Redux
   useEffect(() => {
     const localToken = localStorage.getItem('token');
     if (localToken && !authToken) {
@@ -48,7 +44,6 @@ const App = () => {
     <Router>
       <Layout>
         <Routes>
-          {/* Public Routes */}
           <Route 
             path="/" 
             element={
@@ -58,7 +53,6 @@ const App = () => {
             } 
           />
 
-          {/* Protected Routes */}
           <Route 
             path="/jobs" 
             element={
@@ -77,7 +71,6 @@ const App = () => {
             } 
           />
 
-          {/* Catch all route */}
           <Route 
             path="*" 
             element={

@@ -15,7 +15,6 @@ if (config.url) {
   });
 }
 
-// Test database connection
 const testConnection = async () => {
   try {
     await sequelize.authenticate();

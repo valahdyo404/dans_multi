@@ -10,7 +10,6 @@ describe('JobsService', () => {
         { id: 1, description: 'Software Engineer', company: 'Tech Company', title: 'Engineer', location: 'New York', type: 'Full Time' },
         { id: 2, description: 'Data Scientist', company: 'Data Corp', title: 'Scientist', location: 'San Francisco', type: 'Part Time' },
         { id: 3, description: 'Web Developer', company: 'Web Inc', title: 'Developer', location: 'New York', type: 'Full Time' },
-        // Add more mock jobs for testing pagination
       ] });
 
       const result = await JobsService.getJobs({ description: '', location: '', full_time: '', page: 1 });

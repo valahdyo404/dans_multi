@@ -1,14 +1,12 @@
 const axios = require('axios');
 
 class JobsService {
-  // Helper function to filter jobs based on the provided parameters
   static filterJobs = (jobs, searchParams) => {
     const { description, location, full_time } = searchParams;
 
     return jobs.filter(job => {
       let match = true;
 
-      // Filter by description (search term)
       if (description && !(
         job.description.toLowerCase().includes(description.toLowerCase()) ||
         job.company.toLowerCase().includes(description.toLowerCase()) ||
@@ -17,12 +15,10 @@ class JobsService {
         match = false;
       }
 
-      // Filter by location
       if (location && !job.location.toLowerCase().includes(location.toLowerCase())) {
         match = false;
       }
 
-      // Filter by full_time (boolean)
       if (full_time == 'true' && job.type.toLowerCase() !== 'full time') {
         match = false;
       }
